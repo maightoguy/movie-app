@@ -7,7 +7,7 @@ const MovieCard = () => {
         <div className="movieCard-poster">
           <img />
         </div>
-        <a className="movie-link">
+        <a className="movie-link" href="">
           <div className="movieCard-details">
             <p>Spaceman</p>
             <p>23 feb 2000</p>

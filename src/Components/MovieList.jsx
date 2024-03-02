@@ -1,6 +1,6 @@
 import React from "react";
 import MovieCard from "./MovieCard";
-
+import { Link } from "react-router-dom";
 //'https://api.themoviedb.org/3/movie/popular?api_key=REACT_APP_API_KEY'
 //'https://api.themoviedb.org/3/trending/person/day?api_key=REACT_APP_API_KEY'
 //'https://api.themoviedb.org/3/genre/tv/list?api_key=REACT_APP_API_KEY'
@@ -16,7 +16,7 @@ const MovieList = () => {
           </a>
         </div>
         <div>
-          <div className="grid">
+          <div className="flex">
             <MovieCard />
           </div>
         </div>
@@ -29,7 +29,7 @@ const MovieList = () => {
           </a>
         </div>
         <div>
-          <div className="grid">
+          <div className="flex">
             <MovieCard />
           </div>
         </div>
@@ -37,12 +37,12 @@ const MovieList = () => {
       <div className="category">
         <div className="category-head">
           <h2 className="category-title Tv-series">Whats trending</h2>
-          <a className="category-link" href="/series">
+          <Link className="category-link" to="/Components/movie">
             View all
-          </a>
+          </Link>
         </div>
         <div>
-          <div className="grid">
+          <div className="flex">
             <MovieCard />
           </div>
         </div>

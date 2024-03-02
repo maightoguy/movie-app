@@ -13,8 +13,8 @@ const Home = () => {
                 <div className="header-text">
                   <h1> Entertainment hub</h1>
                   <h3>
-                    {" "}
-                    You will discover exciting, popular, trending and Tv shows.
+                    You will discover exciting, popular and trending movies and
+                    Tv shows.
                   </h3>
                 </div>
                 <form className="form-content">
