@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background-color: #171717;
+  font-family: "Source Sans Pro";
+}
+
+html {
+  display: block;
+}
+
+head {
+  display: none;
+}
+
+div {
+  display: block;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  background: url(/src/Components/images/superman-nawpic-7-e1606425926406.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: bgPosition 30s linear infinite;
+}
+
+.header-content {
+  position: relative;
+  height: 100%;
+  padding: 2rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  z-index: 2;
+}
+
+@media (max-width: 360px) {
+  .header-content {
+    padding: 10px;
+  }
+}
+
+.header-content-text {
+  text-align: center;
+  line-height: 4rem;
+}
+
+.header-form-content {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.header-form-control {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  height: 4rem;
+  margin: 10px;
+  padding: 10px;
+  background-image: linear-gradient(
+    to right top,
+    #ff2901,
+    #d9004a,
+    #9a1862,
+    #562a5a,
+    #262335
+  );
+  border-radius: 50px;
+}
+
+@media (max-width: 360px) {
+  .header-form-control {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 10px;
+    background: transparent;
+  }
+}
+@media (max-width: 499px) {
+  .header-form-control {
+    height: 60px;
+    grid-template-columns: 5fr 2fr;
+    padding: 10px;
+    background: transparent;
+  }
+}
+
+@media (min-width: 500px) {
+  .form__control {
+    grid-template-columns: 5fr 1fr;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 392px) {
+  .header-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-form-control > * {
+    height: 40px;
+  }
+}
+
+.form_text {
+  padding: 0 30px;
+  background: #fff;
+  border-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.form_element {
+  height: 100%;
+  border: transparent;
+  outline: none;
+  font-size: calc(5px + 2vmin);
+}
+
+@media (max-width: 360px) {
+  .form_element {
+    height: 50px;
+  }
+}
+
+.form_btn {
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  background: transparent;
+}
+
+.form__element {
+  height: 100%;
+  background: transparent;
+  border: transparent;
+  outline: none;
+  font-size: calc(5px + 2vmin);
+}
+
+@media (max-width: 360px) {
+  .form_btn {
+    background-image: linear-gradient(
+      to right top,
+      #ff2901,
+      #d9004a,
+      #9a1862,
+      #562a5a,
+      #262335
+    );
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 499px) {
+  .form_btn {
+    background-image: linear-gradient(
+      to right top,
+      #ff2901,
+      #d9004a,
+      #9a1862,
+      #562a5a,
+      #262335
+    );
+    border-radius: 20px;
+  }
+}
+
+.header:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 9%, 0.7333333333333333);
+}
+
+.bottom-container {
+  margin: auto;
+  padding: 20px;
+  background: #171717;
+}
+
+.category,
+.wrapper {
+  margin: 0 auto 4rem;
+}
+
+.category-head {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Source Sans Pro";
+  color: #fff;
+}
+
+.category-title {
+  position: relative;
+}
+
+.category-title:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to right top,
+    #ff2901,
+    #d9004a,
+    #9a1862,
+    #562a5a,
+    #262335
+  );
+}
+
+.category-link {
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.5s ease-in;
+}
+
+.grid {
+  display: grid;
+  margin: auto;
+  grid-gap: 2rem;
+  gap: 2rem;
+  justify-content: center !important;
+}
+
+@media (min-width: 320px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.movieCard {
+  position: relative;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Source Sans Pro";
+  padding-top: 5px;
+  background-image: linear-gradient(
+    to right top,
+    #ff2901,
+    #d9004a,
+    #9a1862,
+    #562a5a,
+    #262335
+  );
+  border-radius: 8px;
+}
+
+.movieCard-poster {
+  height: auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.movie-link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+
+.movieCard-details {
+  width: 100%;
+  height: auto;
+  padding: 5px;
+}

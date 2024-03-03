@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MovieList from "./MovieList";
 import "./styles.css";
 
+let api_key = "4913407cf8779743004ecf4de56a631e";
+let base_url = "https://api.themoviedb.org/3";
+let url = `${base_url}/movie/popular?api_key=${api_key}`;
+
+let movieType = ["Popular", "Trending", "Series"];
 const Home = () => {
+  const [movieData, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data.results);
+      });
+  }, []);
+
   return (
     <>
       <body>
@@ -10,23 +25,23 @@ const Home = () => {
           <div>
             <div className="header">
               <div className="header-content">
-                <div className="header-text">
+                <div className="header-content-text">
                   <h1> Entertainment hub</h1>
                   <h3>
                     You will discover exciting, popular and trending movies and
                     Tv shows.
                   </h3>
                 </div>
-                <form className="form-content">
+                <form action className="header-form-content">
                   <div className="header-form-control">
                     <input
                       type="text"
                       name="search"
                       id
                       placeholder="Find interesting movies"
-                      className="from_element"
+                      className="form_element form_text"
                     ></input>
-                    <button type="submit" className="form_element_btn">
+                    <button type="submit" className="form_element form_btn">
                       Go!
                     </button>
                   </div>
