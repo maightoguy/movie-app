@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import MovieList from "./MovieList";
 import "./styles.css";
 
-let api_key = "4913407cf8779743004ecf4de56a631e";
-let base_url = "https://api.themoviedb.org/3";
-let url = `${base_url}/movie/popular?api_key=${api_key}`;
-
-let movieType = ["Popular", "Trending", "Series"];
 const Home = () => {
-  const [movieData, setData] = useState([]);
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.results);
-      });
-  }, []);
-
   return (
     <>
       <body>

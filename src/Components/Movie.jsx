@@ -4,7 +4,7 @@ import React from "react";
 const Movie = () => {
   return (
     <div className="movie-flex">
-      <img src="/" alt="" />
+      <img src="" alt="" />
       <div className="flex-right">
         <h1>Movie title rating</h1>
         <div className="details-flex">
