@@ -54,9 +54,9 @@ const MovieList = () => {
       <div className="category">
         <div className="category-head">
           <h2 className="category-title trending">Whats trending</h2>
-          <a className="category-link" href="/trending">
+          <Link className="category-link" to="/Pages/Trending">
             View all
-          </a>
+          </Link>
         </div>
         <div>
           <div className="grid">
@@ -72,9 +72,9 @@ const MovieList = () => {
       <div className="category">
         <div className="category-head">
           <h2 className="category-title popular">Whats popular</h2>
-          <a className="category-link" href="/popular">
+          <Link className="category-link" to="/Pages/Popular">
             View all
-          </a>
+          </Link>
         </div>
         <div>
           <div className="grid">
@@ -90,7 +90,7 @@ const MovieList = () => {
       <div className="category">
         <div className="category-head">
           <h2 className="category-title tv-series">Tv Series</h2>
-          <Link className="category-link" to="/Components/movie">
+          <Link className="category-link" to="/Pages/Series">
             View all
           </Link>
         </div>

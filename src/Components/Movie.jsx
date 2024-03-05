@@ -1,12 +1,10 @@
 import { React, useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./movieStyles.css";
 
-const seriesUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=4913407cf8779743004ecf4de56a631e`;
+//const seriesUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=4913407cf8779743004ecf4de56a631e`;
 const Movie = () => {
   const [mov, setMov] = useState({});
-  const [series, setSeries] = useState([]);
   let { movieid } = useParams();
 
   useEffect(() => {
