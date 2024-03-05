@@ -1,10 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 const MovieCard = ({ movie }) => {
-  {
-    console.log(movie);
-  }
   return (
     <>
       <div className="movieCard">
@@ -14,12 +12,12 @@ const MovieCard = ({ movie }) => {
             alt="Movie image"
           />
         </div>
-        <a className="movie-link" href="">
+        <Link className="movie-link" to={`${movie.id}`}>
           <div className="movieCard-details">
             <p>{movie.original_title || movie.original_name}</p>
             <p>{movie.release_date || movie.first_air_date}</p>
           </div>
-        </a>
+        </Link>
       </div>
       ;
     </>

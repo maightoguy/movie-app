@@ -256,7 +256,6 @@ div {
 
 .grid {
   display: grid;
-  margin: auto;
   grid-gap: 2rem;
   gap: 2rem;
   justify-content: center !important;
@@ -295,8 +294,7 @@ div {
     #262335
   );
   border-radius: 8px;
-  justify-content: center !important;
-  justify-items: center !important;
+  justify-self: center;
 }
 
 .movieCard-poster {

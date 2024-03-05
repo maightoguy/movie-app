@@ -14,7 +14,7 @@ const MovieList = () => {
 
   const trendingUrl = `${base_url}/trending/all/day?api_key=${api_key}`;
   const popularUrl = `${base_url}/movie/popular?api_key=${api_key}`;
-  const seriesUrl = `${base_url}/tv/airing_today?api_key=${api_key}`;
+  const seriesUrl = `${base_url}/tv/top_rated?api_key=${api_key}`;
 
   async function getTrendingMovies() {
     try {

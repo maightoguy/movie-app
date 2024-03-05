@@ -1,30 +1,66 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import "./movieStyles.css";
 
-//https://api.themoviedb.org/3/movie/157336?api_key=REACT_APP_API_KEY
+const seriesUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=4913407cf8779743004ecf4de56a631e`;
 const Movie = () => {
+  const [mov, setMov] = useState({});
+  const [series, setSeries] = useState([]);
+  let { movieid } = useParams();
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieid}?api_key=4913407cf8779743004ecf4de56a631e`
+    )
+      .then((resp) => resp.json())
+      .then((resp) => setMov(resp));
+  }, []);
+
+  const { genres = [] } = mov;
+  let genresArr = [];
+
+  {
+    genres.forEach((genre) => {
+      if (genre.name) {
+        genresArr.push(genre.name);
+      }
+    });
+  }
+
+  const genre2 = genresArr;
+  const genreStr = genre2.toString();
+  const firstTwo = genreStr.split(" ,", 2);
+
   return (
-    <div className="movie-flex">
-      <img src="" alt="" />
-      <div className="flex-right">
-        <h1>Movie title rating</h1>
-        <div className="details-flex">
-          <span>Year</span>
-          <span>Length</span>
-          <span>Director</span>
-        </div>
-        <div className="details-flex">
-          <p>cast: cast1, cast2, ....</p>
-        </div>
-        <div className="details-flex">
-          <p>
-            Description:This alloy of Iron and Carbon (hence the name) has been
-            with us for centuries. It is also a very widely used metal and we
-            could indeed be said to be in the steel age. Carbon steel scores
-            highly for all four of the properties which define strength.
-          </p>
+    <body>
+      <div className="root">
+        <div>
+          <div className="movie">
+            <div className="details">
+              <div className="poster">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                />
+              </div>
+              <div className="desc">
+                <h2 className="desc_heading">{mov.title}</h2>
+                <p className="desc_text_short">{mov.tagline}</p>
+                <h3 className="desc_heading">Overview</h3>
+                <p className="desc_text">{mov.overview}</p>
+                <div className="genres desc_text">
+                  <h3>Genres:</h3>
+                  <div className="genres_container">
+                    <div className="genre">{firstTwo}</div>
+                  </div>
+                  <div className="runtime">Runtime:{mov.runtime} mins</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </body>
   );
 };
 
