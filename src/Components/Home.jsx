@@ -1,8 +1,22 @@
-import { React } from "react";
+import React, { useState, useEffect } from "react";
 import MovieList from "./MovieList";
 import "./styles.css";
 
 const Home = () => {
+  let api_key = "4913407cf8779743004ecf4de56a631e";
+
+  const [searchMov, setSearchMov] = useState([]);
+  const [term, setTerm] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    fetch(API_SEARCH)
+      .then((res) => res.json())
+      .then((data) => setSearchMov(data));
+  };
+
+  const API_SEARCH = `https://api.themoviedb.org/3/search/movie?query=${term}&api_key=${api_key}`;
+
   return (
     <>
       <body>
@@ -17,7 +31,11 @@ const Home = () => {
                     Tv shows.
                   </h3>
                 </div>
-                <form action="" className="header-form-content">
+                <form
+                  action=""
+                  className="header-form-content"
+                  onSubmit={handleSearch}
+                >
                   <div className="header-form-control">
                     <input
                       type="text"
@@ -25,6 +43,9 @@ const Home = () => {
                       id
                       placeholder="Find interesting movies"
                       className="form_element form_text"
+                      onChange={(e) => {
+                        setTerm(e.target.value);
+                      }}
                     ></input>
                     <button type="submit" className="form_element form_btn">
                       Go!
@@ -34,7 +55,7 @@ const Home = () => {
               </div>
             </div>
             <div className="bottom-container">
-              <MovieList />
+              <MovieList searchMov={searchMov} />
             </div>
           </div>
         </div>

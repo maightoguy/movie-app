@@ -3,11 +3,15 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import { Link } from "react-router-dom";
 import "./styles.css";
-
+/*
+const trendingUrl = `${base_url}/trending/all/day?api_key=${api_key}`;
+  const popularUrl = `${base_url}/movie/popular?api_key=${api_key}`;
+  const seriesUrl = `${base_url}/tv/top_rated?api_key=${api_key}`;
+*/
 let api_key = "4913407cf8779743004ecf4de56a631e";
 let base_url = "https://api.themoviedb.org/3";
 
-const MovieList = () => {
+const MovieList = ({ searchMov }) => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
   const [seriesMovies, setSeriesMovies] = useState([]);
@@ -16,39 +20,27 @@ const MovieList = () => {
   const popularUrl = `${base_url}/movie/popular?api_key=${api_key}`;
   const seriesUrl = `${base_url}/tv/top_rated?api_key=${api_key}`;
 
-  async function getTrendingMovies() {
-    try {
-      const { data } = await axios.get(trendingUrl);
-      setTrendingMovies(data.results); // Assuming 'results' is the key for movies
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  async function getPopularMovies() {
-    try {
-      const { data } = await axios.get(popularUrl);
-      setPopularMovies(data.results); // Assuming 'results' is the key for movies
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  async function getSeriesMovies() {
-    try {
-      const { data } = await axios.get(seriesUrl);
-      setSeriesMovies(data.results); // Assuming 'results' is the key for movies
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // Combine search movies with trending/popular/series data
+  const movies = searchMov?.results || []; // Use searchMov.results if available, else empty array
 
   useEffect(() => {
-    getTrendingMovies();
-    getPopularMovies();
-    getSeriesMovies(); // Fetch data for all categories on initial render
-  }); // No dependency array ensures one-time fetch
+    const fetchMovies = async () => {
+      try {
+        const trendingResponse = await axios.get(trendingUrl);
+        setTrendingMovies(trendingResponse.data.results);
 
+        const popularResponse = await axios.get(popularUrl);
+        setPopularMovies(popularResponse.data.results);
+
+        const seriesResponse = await axios.get(seriesUrl);
+        setSeriesMovies(seriesResponse.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchMovies();
+  }, []); // Empty dependency array ensures one-time fetch
   return (
     <div>
       <div className="category">
