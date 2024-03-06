@@ -36,7 +36,7 @@ Important -- The view all button takes you to a listing page only, Clicking on a
 Access the movie details from either the homepage or the results of a search operation for specific movies.
 Use the search bar to input your request and click Go! or press enter on your keyboard.
 
-
+You will need to install axios to run locally simply run  ---   npm i axios in your terminal.
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
