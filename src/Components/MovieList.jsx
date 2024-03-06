@@ -41,8 +41,24 @@ const MovieList = ({ searchMov }) => {
 
     fetchMovies();
   }, []); // Empty dependency array ensures one-time fetch
+
   return (
     <div>
+      {movies && movies.length > 0 ? (
+        <div className="category">
+          <div className="category-head">
+            <h2 className="category-title">Search Results</h2>
+          </div>
+          <div>
+            <div className="grid">
+              {movies.map((movie) => (
+                <MovieCard key={movie.id} movie={movie} />
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       <div className="category">
         <div className="category-head">
           <h2 className="category-title trending">Whats trending</h2>
