@@ -29,7 +29,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Important -- The view all, takes you to a listing page only, Clicking on a card does not display an overview. Use the back button to navigate back to the Home page.
+Important -- The view all button takes you to a listing page only, Clicking on a card does not display an overview. Use the back button to navigate back to the Home page.
 Access the movie details from either the homepage or the results of a search operation for specific movies.
 Use the search bar to input your request and click Go! or press enter on your keyboard.
 
