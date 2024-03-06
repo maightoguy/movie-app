@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MovieList from "./MovieList";
 import "./styles.css";
 
@@ -15,7 +15,7 @@ const Home = () => {
       .then((data) => setSearchMov(data));
   };
 
-  const API_SEARCH = `https://api.themoviedb.org/3/search/movie?query=${term}&api_key=${api_key}`;
+  const API_SEARCH = `https://api.themoviedb.org/3/search/multi?query=${term}&api_key=${api_key}`;
 
   return (
     <>
