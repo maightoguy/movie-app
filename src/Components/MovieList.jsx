@@ -47,7 +47,7 @@ const MovieList = () => {
     getTrendingMovies();
     getPopularMovies();
     getSeriesMovies(); // Fetch data for all categories on initial render
-  }, []); // Empty dependency array ensures one-time fetch
+  }); // No dependency array ensures one-time fetch
 
   return (
     <div>
@@ -63,7 +63,7 @@ const MovieList = () => {
             {trendingMovies &&
               trendingMovies.length > 0 &&
               trendingMovies
-                .slice(0, 4)
+                .slice(0, 8)
                 .map((movie) => <MovieCard key={movie.id} movie={movie} />)}
           </div>
         </div>
@@ -81,7 +81,7 @@ const MovieList = () => {
             {popularMovies &&
               popularMovies.length > 0 &&
               popularMovies
-                .slice(0, 4)
+                .slice(0, 8)
                 .map((movie) => <MovieCard key={movie.id} movie={movie} />)}
           </div>
         </div>
@@ -99,7 +99,7 @@ const MovieList = () => {
             {seriesMovies &&
               seriesMovies.length > 0 &&
               seriesMovies
-                .slice(0, 4)
+                .slice(0, 8)
                 .map((movie) => <MovieCard key={movie.id} movie={movie} />)}
           </div>
         </div>

@@ -5,11 +5,11 @@ import "./styles.css";
 const MovieCard = ({ movie }) => {
   return (
     <>
-      <div className="movieCard">
+      <div className="movieCard" style={{}}>
         <div className="movieCard-poster">
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt="Movie image"
+            alt="Movie Poster"
           />
         </div>
         <Link className="movie-link" to={`${movie.id}`}>
@@ -19,7 +19,6 @@ const MovieCard = ({ movie }) => {
           </div>
         </Link>
       </div>
-      ;
     </>
   );
 };

@@ -1,4 +1,3 @@
-import { createContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home";
@@ -6,9 +5,6 @@ import Movie from "./Components/Movie";
 import Popular from "./Pages/Popular";
 import Series from "./Pages/Series";
 import Trending from "./Pages/Trending";
-
-export const AllContext = createContext();
-
 function App() {
   return (
     <BrowserRouter>

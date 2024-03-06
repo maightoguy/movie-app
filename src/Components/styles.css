@@ -7,7 +7,9 @@
 body,
 html {
   background-color: #171717;
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans 3";
+  font-size: large;
+  font-weight: 400;
 }
 
 html {
@@ -32,6 +34,18 @@ div {
   animation: bgPosition 30s linear infinite;
 }
 
+@keyframes bgPosition {
+  0% {
+    background-position: 0% 50%; /* Start at top center */
+  }
+  50% {
+    background-position: 0% 100%; /* Move to bottom center */
+  }
+  100% {
+    background-position: 0% 50%; /* Back to top center */
+  }
+}
+
 .header-content {
   position: relative;
   height: 100%;
@@ -45,7 +59,7 @@ div {
   z-index: 2;
 }
 
-@media (max-width: 360px) {
+@media (min-width: 360px) {
   .header-content {
     padding: 10px;
   }
@@ -67,13 +81,12 @@ div {
   height: 4rem;
   margin: 10px;
   padding: 10px;
-  background-image: linear-gradient(
-    to right top,
-    #ff2901,
-    #d9004a,
-    #9a1862,
-    #562a5a,
-    #262335
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(97, 9, 121, 0.8519782913165266) 35%,
+    rgba(0, 212, 255, 1) 100%
   );
   border-radius: 50px;
 }
@@ -103,7 +116,10 @@ div {
 
 @media (min-width: 361px) and (max-width: 392px) {
   .header-content {
-    padding: 20px;
+    padding-top: 20px;
+  }
+  h1 {
+    padding-top: 19px;
   }
 }
 
@@ -150,13 +166,12 @@ div {
 
 @media (max-width: 360px) {
   .form_btn {
-    background-image: linear-gradient(
-      to right top,
-      #ff2901,
-      #d9004a,
-      #9a1862,
-      #562a5a,
-      #262335
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(97, 9, 121, 0.8519782913165266) 35%,
+      rgba(0, 212, 255, 1) 100%
     );
     border-radius: 20px;
   }
@@ -164,13 +179,12 @@ div {
 
 @media (max-width: 499px) {
   .form_btn {
-    background-image: linear-gradient(
-      to right top,
-      #ff2901,
-      #d9004a,
-      #9a1862,
-      #562a5a,
-      #262335
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(97, 9, 121, 0.8519782913165266) 35%,
+      rgba(0, 212, 255, 1) 100%
     );
     border-radius: 20px;
   }
@@ -233,25 +247,30 @@ div {
   position: absolute;
   content: "";
   width: 150%;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   height: 2px;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(
-    to right top,
-    #ff2901,
-    #d9004a,
-    #9a1862,
-    #562a5a,
-    #262335
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(97, 9, 121, 0.8519782913165266) 35%,
+    rgba(0, 212, 255, 1) 100%
   );
 }
 
 .category-link {
-  padding: 0.5rem 2rem;
+  padding: 0.4rem 1.2rem;
+  text-align: center;
   text-decoration: none;
   color: #fff;
   transition: all 0.5s ease-in;
+  border-radius: 40px;
+}
+
+.category-link:hover {
+  background-color: #3876c7;
 }
 
 .grid {
@@ -285,13 +304,12 @@ div {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-family: "Source Sans Pro";
   padding-top: 5px;
-  background-image: linear-gradient(
-    to right top,
-    #ff2901,
-    #d9004a,
-    #9a1862,
-    #562a5a,
-    #262335
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(97, 9, 121, 0.8519782913165266) 35%,
+    rgba(0, 212, 255, 1) 100%
   );
   border-radius: 8px;
   justify-self: center;
