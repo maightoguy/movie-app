@@ -6,6 +6,8 @@ import "./movieStyles.css";
 const Movie = () => {
   const [mov, setMov] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const imageDefault =
+    "https://image.tmdb.org/t/p/w500//lKoeJ4VZIsv169jO50TOKHds7ip.jpg";
 
   let { movieid } = useParams();
 
@@ -55,15 +57,25 @@ const Movie = () => {
               <div className="details">
                 <div className="poster">
                   <img
-                    src={`https://image.tmdb.org/t/p/w500/${mov.poster_path}`}
+                    src={
+                      mov?.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${mov.poster_path}`
+                        : imageDefault
+                    }
                     alt="Movie Poster"
                   />
                 </div>
                 <div className="desc">
-                  <h2 className="desc_heading">{mov.title}</h2>
-                  <p className="desc_text_short">{mov.tagline}</p>
+                  <h2 className="desc_heading">
+                    {mov?.title || "No title available"}
+                  </h2>
+                  <p className="desc_text_short">
+                    {mov?.tagline || "No tagline available"}
+                  </p>
                   <h3 className="desc_heading">Overview</h3>
-                  <p className="desc_text">{mov.overview}</p>
+                  <p className="desc_text">
+                    {mov?.overview || "No overview available"}
+                  </p>
                   <div className="genres desc_text">
                     <h3>Genres:</h3>
                     <div className="genres_container">

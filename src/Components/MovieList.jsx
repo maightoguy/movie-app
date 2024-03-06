@@ -3,11 +3,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import { Link } from "react-router-dom";
 import "./styles.css";
-/*
-const trendingUrl = `${base_url}/trending/all/day?api_key=${api_key}`;
-  const popularUrl = `${base_url}/movie/popular?api_key=${api_key}`;
-  const seriesUrl = `${base_url}/tv/top_rated?api_key=${api_key}`;
-*/
+
 let api_key = "4913407cf8779743004ecf4de56a631e";
 let base_url = "https://api.themoviedb.org/3";
 
