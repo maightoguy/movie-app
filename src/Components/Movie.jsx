@@ -2,31 +2,46 @@ import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./movieStyles.css";
 
-//const seriesUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=4913407cf8779743004ecf4de56a631e`;
+const CONTENT_TYPES = {
+  movie: "https://api.themoviedb.org/3/movie/",
+  tv: "https://api.themoviedb.org/3/tv/",
+};
+
+const imageDefault =
+  "https://image.tmdb.org/t/p/w500//lKoeJ4VZIsv169jO50TOKHds7ip.jpg";
+
 const Movie = () => {
   const [mov, setMov] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const imageDefault =
-    "https://image.tmdb.org/t/p/w500//lKoeJ4VZIsv169jO50TOKHds7ip.jpg";
+  const [category, setCategory] = useState("movie"); // Initial category
 
   let { movieid } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await fetch(
-          `https://api.themoviedb.org/3/movie/${movieid}?api_key=4913407cf8779743004ecf4de56a631e`
-        )
-          .then((resp) => resp.json())
-          .then((resp) => setMov(resp));
+        const apiUrl = `${CONTENT_TYPES[category]}${movieid}?api_key=4913407cf8779743004ecf4de56a631e`;
+        const response = await fetch(apiUrl);
+        const fetchedData = await response.json();
+
+        if (response.ok) {
+          // Check for successful response
+          setMov(fetchedData);
+          setCategory(category); // Set category only if response is successful
+        } else {
+          console.error("API request failed:", response.statusText);
+          // Handle failed response: potentially switch category, display error message, etc.
+          setCategory(category === "movie" ? "tv" : "movie");
+        }
       } catch (error) {
         console.error(error);
+        setCategory(category === "movie" ? "tv" : "movie");
       } finally {
         setIsLoading(false);
       }
     };
     fetchData();
-  }, [movieid]);
+  }, [movieid, category]);
 
   const { genres = [] } = mov;
   let genresArr = [];
